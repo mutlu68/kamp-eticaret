@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="Uyku Tulumu kategorisi">
+  <title>Uyku Tulumu</title>
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2F1EA"/>
+      <stop offset="1" stop-color="#E8E7DD"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="url(#cbg)"/>
+  <g opacity="0.4" transform="translate(-50 -420) scale(0.9)">
+    <ellipse cx="500" cy="980" rx="180" ry="74.4" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.5"/>
+    <ellipse cx="500" cy="980" rx="249" ry="102.92" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.43"/>
+    <ellipse cx="500" cy="980" rx="318" ry="131.44" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.36"/>
+    <ellipse cx="500" cy="980" rx="387" ry="159.96" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.29"/>
+    <ellipse cx="500" cy="980" rx="456" ry="188.48" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.21999999999999997"/>
+  </g>
+  <g transform="translate(300 90) scale(4.2)">
+    
+    <path d="M26 24 q24 -12 44 4 q10 9 8 26 q-2 20 -14 30 q-12 10 -26 4 q-14 -6 -16 -26 q-2 -26 4 -38 Z"
+      fill="#3f7d7a" fill-opacity="0.16" stroke="#3f7d7a" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M34 28 q20 -8 34 6" fill="none" stroke="#3f7d7a" stroke-width="2" opacity="0.7"/>
+    <path d="M62 30 q8 26 -4 52" fill="none" stroke="#3f7d7a" stroke-width="2.4" stroke-dasharray="3 4"/>
+    <circle cx="62" cy="30" r="3" fill="#3f7d7a"/>
+  </g>
+</svg>

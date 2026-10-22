@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="Pusula Günlük Sırt Çantası 28 L - önden görünüm">
+  <title>Pusula Günlük Sırt Çantası 28 L - önden görünüm</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2F1EA"/>
+      <stop offset="1" stop-color="#E8E7DD"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1250" fill="url(#bg)"/>
+  <g opacity="0.35">
+    <ellipse cx="500" cy="980" rx="180" ry="74.4" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.42"/>
+    <ellipse cx="500" cy="980" rx="249" ry="102.92" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.36119999999999997"/>
+    <ellipse cx="500" cy="980" rx="318" ry="131.44" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.3024"/>
+    <ellipse cx="500" cy="980" rx="387" ry="159.96" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.24359999999999998"/>
+    <ellipse cx="500" cy="980" rx="456" ry="188.48" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.18479999999999996"/>
+  </g>
+  <rect width="1000" height="1250" fill="url(#halo)"/>
+  <g transform="translate(130 220) rotate(0 370 370) scale(7.4)">
+    
+    <rect x="28" y="30" width="44" height="54" rx="12" fill="#6e7377" fill-opacity="0.16" stroke="#6e7377" stroke-width="2.6"/>
+    <path d="M28 46 q22 10 44 0" fill="none" stroke="#6e7377" stroke-width="2.4"/>
+    <path d="M36 30 q0 -16 14 -16 q14 0 14 16" fill="none" stroke="#6e7377" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="40" y="56" width="20" height="16" rx="4" fill="#F2F1EA" stroke="#6e7377" stroke-width="2"/>
+    <path d="M22 40 q-4 18 4 32 M78 40 q4 18 -4 32" fill="none" stroke="#6e7377" stroke-width="2.2" opacity="0.6"/>
+  </g>
+</svg>

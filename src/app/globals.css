@@ -1,26 +1,238 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------------------
+   TASARIM TOKEN'LARI
+   Tailwind v4'te token'lar tailwind.config yerine bu @theme bloğunda tanımlanır.
+   Buradaki her değişken otomatik olarak utility üretir: --color-cta -> bg-cta,
+   text-cta, border-cta ...
+
+   >>> PAZARLIKSIZ KURAL <<<
+   `cta` (kor turuncusu) SADECE iki yerde kullanılır:
+     1. Button variant="primary"  (components/ui/Button.tsx)
+     2. indirim yüzdesi rozeti     (components/ui/Badge.tsx variant="discount")
+   Başka hiçbir bileşende turuncu kullanma; butonların sayfada anında fark
+   edilmesi bu kısıtlamaya bağlı.
+--------------------------------------------------------------------------- */
+@theme {
+  /* Renk paleti */
+  --color-bg: #fafaf7; /* kırık beyaz zemin */
+  --color-ink: #1e2d24; /* çam yeşili-siyah — başlıklar, header */
+  /*
+    Kor turuncusu — SADECE CTA butonu + indirim rozeti.
+
+    Brief'te verilen değer #C75B12 idi; beyaz metinle kontrastı 4.25:1 çıkıyor
+    ve WCAG AA'nın istediği 4.5:1'in altında kalıyor (Lighthouse erişilebilirlik
+    denetimi bunu hatada işaretledi). Brief aynı zamanda "kontrast standartları"
+    da istediği için renk, eşiği geçen EN AZ miktarda koyulaştırıldı:
+    #BE5410 → beyazla 4.70:1. Fark gözle ayırt edilemiyor, kural korunuyor.
+  */
+  --color-cta: #be5410;
+  --color-cta-dark: #a1450b; /* turuncunun hover tonu */
+  --color-sage: #5c6b5e; /* adaçayı — ikincil metin, ikonlar */
+  --color-stone: #2f4a5c; /* kaya mavisi — güven rozetleri, bilgi kutuları */
+  --color-danger: #9b2c2c; /* form hataları — turuncuyla karıştırılmayacak koyu kızıl */
+
+  /* Nötr ara tonlar (zemin ve mürekkep arasından türetilmiş) */
+  --color-line: #e3e2da; /* ince kenarlıklar — gölge yerine bunu kullan */
+  --color-surface: #ffffff; /* kart zemini */
+  --color-surface-alt: #f2f1ea; /* ikincil bölüm zemini */
+
+  /* Tipografi — başlık ve gövde belirgin şekilde farklı iki aile */
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Kartlarda tutarlı TEK bir köşe yarıçapı */
+  --radius-card: 0.625rem;
+
+  /* Ağır gölge yok; sadece kaldırma hissi için çok hafif iki kademe */
+  --shadow-lift: 0 1px 2px rgb(30 45 36 / 0.04), 0 8px 24px rgb(30 45 36 / 0.06);
+  --shadow-pop: 0 2px 4px rgb(30 45 36 / 0.06), 0 16px 40px rgb(30 45 36 / 0.1);
+
+  /* Header yüksekliği — sticky hesapları ve scroll-margin bunu kullanır */
+  --spacing-header: 4.5rem;
+  --spacing-header-sm: 3.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Yorumlara scroll ederken sticky header'ın altında kalmasın */
+    scroll-padding-top: calc(var(--spacing-header) + 1rem);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  /* Erişilebilirlik: her etkileşimli öğede görünür focus halkası */
+  :focus-visible {
+    outline: 2px solid var(--color-stone);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Hareketi azalt tercihine saygı */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Sayfa ortalama kabı — tüm bölümler bunu kullanır */
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* İmza görsel öğe: topografya çizgisi. SADECE hero ve footer'da kullanılır. */
+  .topo-pattern {
+    background-image: url("/img/pattern/topo.svg");
+    background-size: 720px;
+    background-repeat: repeat;
+  }
+
+  /*
+    Karusel "taşma" hizası.
+    Karusel ekranın sağ kenarına kadar akar (bir sonraki kartın görünmesi
+    kaydırılabilir olduğunu anlatır) ama İLK kart, başlığın hizasında
+    başlamalıdır. Bu yüzden yatay boşluk, container-page ile aynı formülden
+    hesaplanıyor: ortalanmış kabın sol kenarı + kabın kendi iç boşluğu.
+    100vw yerine 100% kullanılıyor — 100vw kaydırma çubuğunu da sayar ve
+    birkaç piksellik kayma yaratırdı.
+  */
+  .carousel-bleed {
+    padding-inline: calc(max(0px, 100% - 80rem) / 2 + 1rem);
+    /* scroll-padding olmadan scroll-snap ilk kartı iç boşluğun ÜSTÜNDEN
+       kaydırıyor (snap alanı padding kenarından başladığı için) ve karusel
+       açılışta kendiliğinden sağa kaymış görünüyor. Bu satır snap alanını
+       içerik kenarına çeker. */
+    scroll-padding-inline: calc(max(0px, 100% - 80rem) / 2 + 1rem);
+  }
+  @media (min-width: 640px) {
+    .carousel-bleed {
+      padding-inline: calc(max(0px, 100% - 80rem) / 2 + 1.5rem);
+      scroll-padding-inline: calc(max(0px, 100% - 80rem) / 2 + 1.5rem);
+    }
+  }
+  @media (min-width: 1024px) {
+    .carousel-bleed {
+      padding-inline: calc(max(0px, 100% - 80rem) / 2 + 2rem);
+      scroll-padding-inline: calc(max(0px, 100% - 80rem) / 2 + 2rem);
+    }
+  }
+
+  /* Yatay karuseller: scrollbar gizli ama klavye/tekerlek scroll'u açık */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Ekran okuyucuya görünür, gözle görünmez */
+  .sr-only-focusable:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* Duyuru barındaki mesajların sırayla dönmesi.
+   İki mesaj var ve döngü 9 sn: her mesaj döngünün YARISINDAN AZINDA görünür
+   (yaklaşık %6-%44 arası), ikincisi 4.5 sn gecikmeyle başlar. Görünürlük
+   penceresi %50'yi aşarsa iki mesaj üst üste biner. */
+@keyframes marquee-in {
+  0% {
+    opacity: 0;
+    transform: translateY(60%);
+  }
+  6%,
+  44% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50%,
+  100% {
+    opacity: 0;
+    transform: translateY(-60%);
+  }
+}
+
+/* Sepete eklendi onayı — mini animasyon (sayfa yenilemesi yerine) */
+@keyframes cart-pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.28);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="Çadır kategorisi">
+  <title>Çadır</title>
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2F1EA"/>
+      <stop offset="1" stop-color="#E8E7DD"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="url(#cbg)"/>
+  <g opacity="0.4" transform="translate(-50 -420) scale(0.9)">
+    <ellipse cx="500" cy="980" rx="180" ry="74.4" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.5"/>
+    <ellipse cx="500" cy="980" rx="249" ry="102.92" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.43"/>
+    <ellipse cx="500" cy="980" rx="318" ry="131.44" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.36"/>
+    <ellipse cx="500" cy="980" rx="387" ry="159.96" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.29"/>
+    <ellipse cx="500" cy="980" rx="456" ry="188.48" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.21999999999999997"/>
+  </g>
+  <g transform="translate(300 90) scale(4.2)">
+    
+    <path d="M8 78 L50 20 L92 78 Z" fill="#4a5d43" fill-opacity="0.16"/>
+    <path d="M8 78 L50 20 L92 78" fill="none" stroke="#4a5d43" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M50 20 L50 78" stroke="#4a5d43" stroke-width="2" opacity="0.65"/>
+    <path d="M38 78 L50 46 L62 78 Z" fill="#F2F1EA" stroke="#4a5d43" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M4 78 L96 78" stroke="#4a5d43" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M50 20 L50 12" stroke="#4a5d43" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

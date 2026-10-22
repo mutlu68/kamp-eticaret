@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="Pusula Gölgelik Tarp 400x300 cm - yakın detay">
+  <title>Pusula Gölgelik Tarp 400x300 cm - yakın detay</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EFEEE5"/>
+      <stop offset="1" stop-color="#E8E7DD"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1250" fill="url(#bg)"/>
+  <g opacity="0.35">
+    <ellipse cx="500" cy="980" rx="180" ry="74.4" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.42"/>
+    <ellipse cx="500" cy="980" rx="249" ry="102.92" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.36119999999999997"/>
+    <ellipse cx="500" cy="980" rx="318" ry="131.44" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.3024"/>
+    <ellipse cx="500" cy="980" rx="387" ry="159.96" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.24359999999999998"/>
+    <ellipse cx="500" cy="980" rx="456" ry="188.48" fill="none" stroke="#5C6B5E" stroke-width="1.6" opacity="0.18479999999999996"/>
+  </g>
+  <rect width="1000" height="1250" fill="url(#halo)"/>
+  <g transform="translate(-60 100) rotate(0 530 530) scale(10.6)">
+    
+    <path d="M8 78 L50 20 L92 78 Z" fill="#3f5c3a" fill-opacity="0.16"/>
+    <path d="M8 78 L50 20 L92 78" fill="none" stroke="#3f5c3a" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M50 20 L50 78" stroke="#3f5c3a" stroke-width="2" opacity="0.65"/>
+    <path d="M38 78 L50 46 L62 78 Z" fill="#F2F1EA" stroke="#3f5c3a" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M4 78 L96 78" stroke="#3f5c3a" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M50 20 L50 12" stroke="#3f5c3a" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
