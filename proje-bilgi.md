@@ -9,7 +9,7 @@ durum: geliştirme
   öncelikli bir e-ticaret vitrini. Shopify premium tema kalitesi hedeflendi.
   Deneme/demo projesi — gerçek satış ve ödeme yok.
 - Müşteri/sahip: iç proje (brief: `Masaüstü/kamp-eticaret-brief.md`)
-- Repo: yerel; `npx create-next-app` kendi git deposunu oluşturdu, uzak repo yok
+- Repo: https://github.com/mutlu68/kamp-eticaret (PUBLIC, dal `master`, 2026-10-22). Gerçek sırlar yalnızca `.gitignore`'daki env dosyalarında; push öncesi sır taraması temizdi.
 
 ## Stack
 - Dil/çatı: TypeScript, Next.js 16.3 (App Router), React 19.2
